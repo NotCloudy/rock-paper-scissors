@@ -1,69 +1,99 @@
 import random
-def game():
-    rock = "r"
-    paper = "p"
-    scissors = "s"
-    options = ["r","p","s"]
-    humanCounter = 0
-    aiCounter = 0
-    aiTurn = random.choice(options)
-    humanTurn = input("-rock papers scissors-")
 
+humanCounter = 0
+aiCounter = 0
+global humanCounter
+global aiCounter
+def reset():
+    if (humanCounter or aiCounter == 3):
+         
+        humanCounter = 0
+      
+        aiCounter = 0
+    
+def winConditions(humanTurn, aiTurn):
+        global humanCounter
+        global aiCounter
 
-    def winConditions(humanCounter, aiCounter):
         if humanTurn == "r" and aiTurn == "s":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You win!")
-            humanCounter = humanCounter + 1
+            print(humanCounter)
+            humanCounter += 1
         elif humanTurn == "s" and aiTurn == "p":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You win!")
-            humanCounter = humanCounter + 1
+            humanCounter += 1
         elif humanTurn == "p" and aiTurn == "r":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You win!")
-            humanCounter = humanCounter + 1
+            humanCounter += 1
         elif aiTurn == "r" and humanTurn == "s":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You lose!")
-            aiCounter = aiCounter + 1
+            aiCounter += 1
         elif aiTurn == "s" and humanTurn == "p":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You lose!")
-            aiCounter = aiCounter + 1
+            aiCounter += 1
         elif aiTurn == "p" and humanTurn == "r":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("You lose!")
-            aiCounter = aiCounter + 1
-    winConditions(humanCounter, aiCounter)
-    def tieConditions():
+            aiCounter += 1
+
+def tieConditions(humanTurn, aiTurn):
         if humanTurn == "r" and aiTurn == "r":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("Tie!")
         elif humanTurn == "p" and aiTurn == "p":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("Tie!")
         elif humanTurn == "s" and aiTurn == "s":
-            print(aiTurn)
+            print(f"AI: {aiTurn}")
             print("Tie!")
-    tieConditions()
 
-game()
+def game():
+    options = ["r","p","s"]
+    aiTurn = random.choice(options)
+    humanTurn = input("- rock papers scissors - ")
+    
+    print(f"Human: {humanTurn}")
 
-print(' Next round! ')
-game()
-print(' Next round! ')
-game()
-print(' Next round! ')
-game()
+    winConditions(humanTurn, aiTurn)
+    tieConditions(humanTurn, aiTurn)
+    reset()
 
-def win(humanCounter, aiCounter):
-    if humanCounter > aiCounter:
-        print("you win!!!!11!!!!!!!1")
-    elif humanCounter < aiCounter:
-        print("you lose !!!!!11!!!!!!1")
-win()
 
+# def win(humanCounter, aiCounter):
+#         if humanCounter > aiCounter:
+#             print("you win!!!!11!!!!!!!1")
+#         elif humanCounter < aiCounter:
+#             print("you lose !!!!!11!!!!!!1")
+#         win(humanCounter, aiCounter)
+        
+# game()
+# game()
+# print(f"\nNext round! H: {humanCounter} AI: {aiCounter}\n")
+# game()
+# print(f"\nNext round! H: {humanCounter} AI: {aiCounter}\n")
+# game()
+
+while(humanCounter <= 4 or aiCounter <= 4):
+    if(humanCounter < 3 or aiCounter < 3):
+        game()
+        print(f"\nNext round! H: {humanCounter} AI: {aiCounter}\n")
+
+    if(humanCounter == 3 or aiCounter == 4):
+        if(humanCounter == 3):
+            print(f"Human Wins | Human Score: {humanCounter} : AI Score: {aiCounter}")
+
+        elif(aiCounter == 3):
+            print(f"AI Wins | Human Score: {humanCounter} : AI Score: {aiCounter}")
+
+    
+    
+
+    
 
 
 
