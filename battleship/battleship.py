@@ -1,106 +1,42 @@
 import random
+from random import randint
+board = []
+board2 = []
 
-def grid():
-   row = [['|_|', '|_|', '|_|', '|_|', '|_|'],
-           ['|_|', '|_|', '|_|', '|_|', '|_|'],
-           ['|_|', '|_|', '|_|', '|_|', '|_|'],
-           ['|_|', '|_|', '|_|', '|_|', '|_|'],
-           ['|_|', '|_|', '|_|', '|_|', '|_|']]   
-   
-   print(row)
-   for i in row:
-      print(*i)
+for x in range(6):
+    board.append(["[]"] * 6)
+    board2.append(["[]"] * 6)
+def print_board(board):
+    for row in board:
+        print((" ").join(row))
+print("Let's play Battleship!")
+print_board(board)
 
-grid()
-shipLocation1 = random.randrange(0,4)
-shipLocation2 = random.randrange(0,4)
-shipLocation3 = random.randrange(0,4)
-shipLocation4 = random.randrange(0,4)
-shipLocation5 = random.randrange(0,4)
-def game():
-   playerGuess = input(' \n Where would you like to shoot? (row,column)  ')
-   def rows():
-      def row1(): 
-         if shipLocation1 == (0) and playerGuess == (0,0):
-            print('|X| |_| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation1 == (1) and playerGuess == (0,1):
-            print('|_| |X| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation1 == (2) and playerGuess == (0,2):
-            print('|_| |_| |X| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation1 == (3) and playerGuess == (0,3):
-            print('|_| |_| |_| |X| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation1 == (4) and playerGuess == (0,4):
-            print('|_| |_| |_| |_| |X|' + 'Congrats! you sunk one of their ships! ')
-         row1()
-      def row2():
-         if shipLocation2 == (0) and playerGuess == (1,0):
-            print('|X| |_| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation2 == (1) and playerGuess == (1,1):
-            print('|_| |X| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation2 == (2) and playerGuess == (1,2):
-            print('|_| |_| |X| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation2 == (3) and playerGuess == (1,3):
-            print('|_| |_| |_| |X| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation2 == (4) and playerGuess == (1,4):
-            print('|_| |_| |_| |_| |X|' + 'Congrats! you sunk one of their ships! ')
-         row2()
-      def row3():
-         if shipLocation3 == (0) and playerGuess == '2,0':
-            print('|X| |_| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation3 == (1) and playerGuess == '2,1':
-            print('|_| |X| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation3 == (2) and playerGuess == '2,2':
-            print('|_| |_| |X| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation3 == (3) and playerGuess == '2,3':
-            print('|_| |_| |_| |X| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation3 == (4) and playerGuess == '2,4':
-            print('|_| |_| |_| |_| |X|' + 'Congrats! you sunk one of their ships! ')
-         row3()
-      def row4():
-         if shipLocation4 == (0) and playerGuess == '3,0':
-            print('|X| |_| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation4 == (1) and playerGuess == '3,1':
-            print('|_| |X| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation4 == (2) and playerGuess == '3,2':
-            print('|_| |_| |X| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation4 == (3) and playerGuess == '3,3':
-            print('|_| |_| |_| |X| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation4 == (4) and playerGuess == '3,4':
-            print('|_| |_| |_| |_| |X|' + 'Congrats! you sunk one of their ships! ')
-         row4()
-      def row5():
-         if shipLocation5 == (0) and playerGuess == '4,0':
-            print('|X| |_| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation5 == (1) and playerGuess == '4,1':
-            print('|_| |X| |_| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation5 == (2) and playerGuess == '4,2':
-            print('|_| |_| |X| |_| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation5 == (3) and playerGuess == '4,3':
-            print('|_| |_| |_| |X| |_|' + 'Congrats! you sunk one of their ships! ')
-         if shipLocation5 == (4) and playerGuess == '4,4':
-            print('|_| |_| |_| |_| |X|' + 'Congrats! you sunk one of their ships! ')
-         row5()
-      rows()
-      def miss():
-         def row1_miss():
-            if shipLocation1 == (0) and playerGuess == (0,1):
-               print('|_| |0| |_| |_| |_|' + 'You missed their battleship! ')
-            if shipLocation1 == (0) and playerGuess == (0,2):
-               print('|_| |_| |0| |_| |_|' + 'You missed their battleship! ')
-            if shipLocation1 == (0) and playerGuess == (0,3):
-               print('|_| |_| |_| |0| |_|' + 'You missed their battleship! ')
-            if shipLocation1 == (0) and playerGuess == (0,4):
-               print('|_| |_| |_| |_| |0|' + 'You missed their battleship! ')
-            row1_miss()
-         def row2_miss():
-            if shipLocation2 == (0) and playerGuess == (1,1):
-               print('|_| |0| |_| |_| |_|' + 'You missed their battleship! ')
-            if shipLocation2 == (0) and playerGuess == (1,2):
-               print('|_| |_| |0| |_| |_|' + 'You missed their battleship! ')
-            if shipLocation2 == (0) and playerGuess == (1,3):
-               print('|_| |_| |_| |0| |_|' + 'You missed their battleship! ')
-            if shipLocation2 == (0) and playerGuess == (1,4):
-               print('|_| |_| |_| |_| |0|' + 'You missed their battleship! ')
-            row2_miss()
-         miss()
-game()
+def random_row(board):
+   return randint(0, len(board) - 1)
+def random_col(board):
+   return randint(0, len(board[0]) - 1)
+
+ship_row = random_row(board)
+ship_col = random_col(board)
+print([ship_row] + [ship_col])
+for turn in range(9):
+   print ("Your Turn"), turn
+   guess_row = int(input("Guess Row:"))
+   guess_col = int(
+        input("Guess Col:"))
+   if guess_row == ship_row and guess_col == ship_col:
+      print('Congratulations, you sunk my battle ship!')
+      board2[ship_row][ship_col] = "X"
+      print_board(board2)
+      break
+   else:
+      if (guess_row < 0 or guess_row > 5) or (guess_col < 0 or guess_col > 5):
+            print("Oops, that's not even in the ocean.")
+            if turn == 8:
+               print('\n Game Over!')
+turn =+ 1
+
+
+
+
